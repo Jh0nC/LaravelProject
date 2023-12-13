@@ -35,7 +35,7 @@
                     </div>
                     Categorias
                 </a>
-                <a class="nav-link" href="">
+                <a class="nav-link" href=" {{ route('list.supplier') }} ">
                     <div class="sb-nav-link-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-person-badge" viewBox="0 0 16 16">
@@ -57,7 +57,7 @@
                     </div>
                     Usuarios
                 </a>
-                <a class="nav-link" href=" {{ route('list.user') }} ">
+                <a class="nav-link" href=" {{ route('list.role') }} ">
                     <div class="sb-nav-link-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-person-gear" viewBox="0 0 16 16">

@@ -3,32 +3,39 @@
 @section('content')
     <div class="container px-4">
         <div class="row justify-content-end p-3">
-            <a class="btn btn-primary" style="width: 110px" href=" {{ route('add.role') }} ">Agregar</a>
+            <a class="btn btn-primary" style="width: 110px" href=" {{ route('add.supplier') }} ">Agregar</a>
         </div>
         <div class="card mb-4">
             <div class="card-header">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-person-gear" viewBox="0 0 16 16">
+                    class="bi bi-person-badge" viewBox="0 0 16 16">
+                    <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                     <path
-                        d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                        d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492z" />
                 </svg>
-                Roles
+                Proveedores
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
                         <th>#</th>
                         <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Télefono</th>
+                        <th>Correo electronico</th>
                         <th>Acciones</th>
                     </thead>
                     <tbody>
-                        @foreach ($roles as $item)
+                        @foreach ($supplier as $item)
                             <tr>
                                 <td> {{ $item['id'] }} </td>
                                 <td> {{ $item['name'] }} </td>
+                                <td> {{ $item['address'] }} </td>
+                                <td> {{ $item['phone'] }} </td>
+                                <td> {{ $item['mail'] }} </td>
                                 <td>
                                     <div class="container d-flex justify-content-around">
-                                        <a href=" {{ route('delete.role', $item['id']) }} " class="btn btn-danger">
+                                        <a href=" {{ route('delete.supplier', $item['id']) }} " class="btn btn-danger">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                 <path
@@ -37,7 +44,7 @@
                                                     d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                             </svg>
                                         </a>
-                                        <a href=" {{ route('edit.role', $item['id']) }} " class="btn btn-success">
+                                        <a href=" {{ route('edit.supplier', $item['id']) }} " class="btn btn-success">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                 <path

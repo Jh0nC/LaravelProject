@@ -3,6 +3,8 @@
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -64,3 +66,32 @@ Route::post('/categorie/edit/{id}',[CategorieController::class,'update'])->name(
 // Delete
 Route::get('/categorie/delete/{id}',[CategorieController::class,'delete'])->name('delete.categorie');
 Route::post('/categorie/delete/{id}',[CategorieController::class,'destroy'])->name('delete.categorie.destroy');
+
+
+/* role */
+// Create
+Route::get('/role/register',[RoleController::class,'create'])->name('add.role');
+Route::post('/role/register',[RoleController::class,'store'])->name('add.role.save');
+// Read
+Route::get('/role',[RoleController::class,'index'])->name('list.role');
+// Update
+Route::get('/role/edit/{id}',[RoleController::class,'edit'])->name('edit.role');
+Route::post('/role/edit/{id}',[RoleController::class,'update'])->name('edit.role.save');
+// Delete
+Route::get('/role/delete/{id}',[RoleController::class,'delete'])->name('delete.role');
+Route::post('/role/delete/{id}',[RoleController::class,'destroy'])->name('delete.role.destroy');
+
+
+/* supplier */
+// Create
+Route::get('/supplier/register',[SupplierController::class,'create'])->name('add.supplier');
+Route::post('/supplier/register',[SupplierController::class,'store'])->name('add.supplier.save');
+// Read
+Route::get('/supplier',[SupplierController::class,'index'])->name('list.supplier');
+// Update
+Route::get('/supplier/edit/{id}',[SupplierController::class,'edit'])->name('edit.supplier');
+Route::post('/supplier/edit/{id}',[SupplierController::class,'update'])->name('edit.supplier.save');
+// Delete
+Route::get('/supplier/delete/{id}',[SupplierController::class,'delete'])->name('delete.supplier');
+Route::post('/supplier/delete/{id}',[SupplierController::class,'destroy'])->name('delete.supplier.destroy');
+
