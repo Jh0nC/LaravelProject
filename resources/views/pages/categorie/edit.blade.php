@@ -9,20 +9,18 @@
                         <div class="col-lg-7">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Registrar una categoria</h3>
+                                    <h3 class="text-center font-weight-light my-4">Editar la categoría: {{$categorie['name']}}</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('add.categorie.save') }}" method="POST">
+                                    <form action="{{ route('edit.categorie.save', $categorie['id']) }}" method="POST">
                                         @csrf
                                         <div class="form-floating mb-3">
-                                            <input required type="mail" name="name" class="form-control"
-                                                placeholder="" />
+                                            <input required type="mail" name="mail" class="form-control"  placeholder="" value="{{ $categorie['mail'] }}">
                                             <label for="inputEmail">Nombre</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                                <input required type="text" name="description" class="form-control"
-                                                    placeholder="">
-                                                <label for="inputFirstName">Descripción</label>
+                                            <input required type="mail" name="description" class="form-control"  placeholder="" value="{{ $categorie['description'] }}">
+                                            <label for="inputEmail">Descripción</label>
                                         </div>
                                         <div class="mt-4 mb-0">
                                             <div class="d-grid">

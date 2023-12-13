@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Categorie;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -9,7 +10,8 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index() {
-        $products = Product::select('products.id','products.name as product_name','products.description','products.price','categories.name as categorie')
+        $products = Product::
+        select('products.id','products.name as product_name','products.description','products.price','categories.name as categorie')
         ->join('categories','products.categorie','=','categories.id')->get();
         // dd($products);
         return view('pages.product.list', compact('products'));
@@ -46,6 +48,7 @@ class ProductController extends Controller
         $product->price = $price;
         $product->categorie = $request->input('categorie');
         $product->description = $request->input('description');
+        $product->updated_at = Carbon::now()->setTimezone('America/Bogota');
         $product->save();
         return redirect()->route('list.product');
     }
